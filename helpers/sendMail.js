@@ -1,0 +1,45 @@
+const { nodemailer } = require("../utils/nodemailer");
+
+
+exports.sendMail = (email, name, company, keyToSend, res) => {
+
+    nodemailer();
+    const mailOptions = {
+        from: 'sender@gmail.com',
+        to: `${email}`, 
+        subject: 'Node Mailer',
+        html: `<div  style="margin: 1.5rem;">
+        <p style="margin-bottom: 3rem;">Dear ${name},</p>
+        <p>I hope this message finds you well. I am sharing the necessary 
+            API key with you to interact with an artificial intelligence chatbot.</p>
+    
+        <p>This chatbot has been designed to simulate interview interactions and provide 
+            relevant and helpful responses based on my previously uploaded personal data. 
+            The API key will grant you access to an interactive experience, allowing you 
+            to assess my skills and abilities in a more dynamic manner.</p>
+        
+        <p>Please feel free to reach out if you have any additional questions or need 
+            further information about my profile and experience. I am eager for the
+            opportunity to demonstrate how my skills can benefit ${company}.</p>
+    
+            
+            <p>I appreciate your time and consideration in advance.</p>
+            <p>Warm regards,</p>
+            <h3>Api key: ${keyToSend}</h3>
+        <div style="margin-top: 4rem;">
+            <h4 style="margin: 0rem; font-weight: bold; color: rgb(102, 102, 165);">Fernando Perez Diez</h4>
+            <h4 style="margin: 0rem;; color: rgb(102, 102, 165);">perezdiezf@gmail.com</h4>
+            <h4 style="margin: 0rem;; color: rgb(102, 102, 165);">+54 9 221 5952135</h4>
+            <h4 style="margin: 0rem;; color: rgb(102, 102, 165);">Buenos Aires, Argentina</h4>
+        </div>
+    </div>`, 
+   };
+
+      transport.sendMail(mailOptions, function(err, info) {
+        if (err) {
+          return res.send(err)
+        } else {
+          return res.send(info);
+        }
+    });
+}
