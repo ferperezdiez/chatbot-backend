@@ -1,7 +1,11 @@
 const { nodemailer } = require("../utils/nodemailer");
+// const { Resend } = require('resend');
+require('dotenv').config();
 
 
-exports.sendMail = (email, name, company, keyToSend, res) => {
+
+
+exports.sendMail = (email, company, keyToSend, res) => {
 
     nodemailer();
     const mailOptions = {
@@ -9,7 +13,7 @@ exports.sendMail = (email, name, company, keyToSend, res) => {
         to: `${email}`, 
         subject: 'Node Mailer',
         html: `<div  style="margin: 1.5rem;">
-        <p style="margin-bottom: 3rem;">Dear ${name},</p>
+        <p style="margin-bottom: 3rem;">Dear,</p>
         <p>I hope this message finds you well. I am sharing the necessary 
             API key with you to interact with an artificial intelligence chatbot.</p>
     

@@ -3,7 +3,7 @@ const { nodemailer } = require("../utils/nodemailer");
 
 exports.sendReport = (question, data, email) => {
 
-    nodemailer();
+    nodemailer(); 
     const mailOptions = {
         from: 'sender@gmail.com',
         to: `perezdiezf@gmail.com`, 
